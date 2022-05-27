@@ -2,10 +2,10 @@
 
 # Internet
 
-[Internet](Front Zzang/Internet.md)
+[Internet](Front%2Zzang/Internet.md)
 
 ## HTML
 
-[HTML](Front Zzang/HTML.md)
+[HTML](Front%2Zzang/HTML.md)
 
-[JavaScript](Front Zzang/JavaScript.md)
+[JavaScript](Front%2Zzang/JavaScript.md)
