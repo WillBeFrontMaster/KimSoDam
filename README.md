@@ -1,5 +1,4 @@
 # KimSoDam
-# Front Zzang
 
 # Internet
 
