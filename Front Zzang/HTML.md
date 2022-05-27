@@ -41,7 +41,7 @@
 
 # 문서 구조 태그
 
-![Untitled](%E1%84%90%E1%85%A2%E1%84%80%E1%85%B3%200f5affe61cc2406d830f893ea9e3471a/Untitled.png)
+![Untitled](Untitled.png)
 
 | <header> | 헤더 영역 |
 | --- | --- |
