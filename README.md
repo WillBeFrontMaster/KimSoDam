@@ -8,4 +8,6 @@
 
 [HTML](Front%20Zzang/HTML.md)
 
+## JavaScript
+
 [JavaScript](Front%20Zzang/JavaScript.md)
