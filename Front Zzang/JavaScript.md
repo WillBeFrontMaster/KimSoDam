@@ -240,3 +240,92 @@ var num;      // 한 변수에 여러 번 대입할 수는 있지만, 변수의 
     Number(true);  // 숫자 1
     Number(false); // 숫자 0
     ```
+    
+    
+    2022 / 05 / 30 
+    --------------
+    
+    ## 배열
+    ### 자바스크립트 배열 선언
+    
+    ```jsx
+    var arr = [요소1, 요소2,...];   // 배열 리터럴
+    var arr = Array(요소1, 요소2,...); // Array 객체의 생성자를 이용하는 방법
+    var arr = new Array(요소1, 요소2,...); // new 연산자를 이용한 Array 객체 생성 방법
+    ```
+    
+    ### 배열 요소의 추가
+    
+    ```jsx
+    arr.push(추가할 요소);   // push() 메소드 사용
+    arr[arr.length] = 추가할 요소; // length 프로퍼티 사용
+    arr[특정인덱스] = 추가할 요소; // 특정 인덱스 지정하여 추가
+    ```
+    
+    push()와 length는 배열의 마지막에 새로운 요소를 추가한다.
+    
+    
+    ### 희소 배열
+    
+    배열에 속한 요소의 위치가 연속적이지 않은 배열
+    
+    배열의 length 프로퍼티 값보다 배열 요소의 개수가 적다
+    
+    ```jsx
+    var arr = new Array(); // 빈 배열 객체를 생성
+
+    arr[99] = "JavaScript" // 배열 arr의 100번째 위치에 문자열을 삽입
+
+    // 100번째 요소를 삽입했기 때문에 배열의 길이는 100으로 증가
+
+    document.write("배열의 길이는 " + arr.length + "입니다.");
+    ```
+    
+    ### 연관 배열
+    
+    인덱스가 숫자가 아닌 문자열로 된 Key를 이용하는 배열
+    
+    자바스크립트에서 별도로 제공하진 않으나 객체 생성은 가능
+    
+    근디 그러면 자바스크립트 내부적으로 Array 객체에서 기본 객체로 재선언 되기 때문에 Array 메소드랑 프로퍼티가 정확하지 않은 값 반환함
+    
+    ```jsx
+    var arr = [];     // 비어있는 배열을 생성함.
+
+    arr["하나"] = 1;  // 숫자 인덱스 대신에 문자열을 인덱스로 배열 요소를 추가함.
+
+    arr["참"] = true;
+
+    arr["자바스크립트"] = "JavaScript";
+
+    document.write(arr["참"]);  // 문자열을 인덱스로 배열 요소에 접근할 수 있음.
+
+    document.write(arr.length); // 연관 배열은 Array 객체가 아니므로 length 프로퍼티의 값이 0임.
+
+    document.write(arr[0]);     // undefined
+    ```
+    
+    연관 배열인 arr은 length 프로퍼티의 값으로 0을 반환
+    
+    말은 연관 배열이지만 사실 배열 아님 근데 왜 배열이래 ㅋㅋ
+    
+    ECMASript 6부턴 Map 객체 제공
+    
+    
+    
+    ## DOM
+    
+    문서 객체 모델(DOM, Document Object Model)은 XML이나 HTML 문서에 접근하기 위한 일종의 인터페이스
+    문서 내의 모든 요소를 정의하고, 각각의 요소에 접근하는 방법을 제공
+    
+    ![image](https://user-images.githubusercontent.com/58940128/170966349-0bc3ff49-669b-402a-94f7-306622209ca1.png)
+
+
+
+    ### Document 객체
+    
+    는 목요일에 
+    
+    
+    
+    
