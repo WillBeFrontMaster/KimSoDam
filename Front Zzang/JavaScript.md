@@ -386,12 +386,12 @@ var num;      // 한 변수에 여러 번 대입할 수는 있지만, 변수의 
      ## DOM 요소
     ### DOM 요소의 선택
     
-        1. HTML 태그 이름(tag name)을 이용한 선택
-        2. 아이디(id)를 이용한 선택
-        3. 클래스(class)를 이용한 선택
-        4. name 속성(attribute)을 이용한 선택
-        5. CSS 선택자(selector)를 이용한 선택
-        6. HTML 객체 집합(object collection)을 이용한 선택
+    1. HTML 태그 이름(tag name)을 이용한 선택
+    2. 아이디(id)를 이용한 선택
+    3. 클래스(class)를 이용한 선택
+    4. name 속성(attribute)을 이용한 선택
+    5. CSS 선택자(selector)를 이용한 선택
+    6. HTML 객체 집합(object collection)을 이용한 선택
     
     ### HTML 태그 이름 (tag name)을 이용한 선택
     
