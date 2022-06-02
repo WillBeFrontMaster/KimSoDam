@@ -420,7 +420,7 @@ var num;      // 한 변수에 여러 번 대입할 수는 있지만, 변수의 
   ```jsx
   var selectedItem = document.getElementsByClassName("odd"); // 클래스가 "odd"인 모든 요소를 선택.
   for (var i = 0; i < selectedItem.length; i++) {
-    selectedItem.item(i).style.color = "red"; // 선택된 모든 요소의 텍스트 색상을 변경.
+        selectedItem.item(i).style.color = "red"; // 선택된 모든 요소의 텍스트 색상을 변경.
   }
   ```
     
@@ -431,7 +431,7 @@ var num;      // 한 변수에 여러 번 대입할 수는 있지만, 변수의 
    ```jsx
    var selectedItem = document.getElementsByName("first"); // name 속성값이 "first"인 모든 요소를 선택.
    for (var i = 0; i < selectedItem.length; i++) {
-    selectedItem.item(i).style.color = "red"; // 선택된 모든 요소의 텍스트 색상을 변경.
+        selectedItem.item(i).style.color = "red"; // 선택된 모든 요소의 텍스트 색상을 변경.
    }
    ```
         
@@ -442,7 +442,7 @@ var num;      // 한 변수에 여러 번 대입할 수는 있지만, 변수의 
    ```jsx
    var selectedItem = document.querySelectorAll("li.odd"); // 클래스가 "odd"인 요소 중에서 <li> 요소만을 선택.
    for (var i = 0; i < selectedItem.length; i++) {
-    selectedItem.item(i).style.color = "red"; // 선택된 모든 요소의 텍스트 색상을 변경.
+        selectedItem.item(i).style.color = "red"; // 선택된 모든 요소의 텍스트 색상을 변경.
     }
    ```
                                                 
