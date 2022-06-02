@@ -241,8 +241,8 @@ var num;      // 한 변수에 여러 번 대입할 수는 있지만, 변수의 
     Number(false); // 숫자 0
     ```
     
-    
     2022 / 05 / 30 
+    Study
     --------------
     
     ## 배열
@@ -320,8 +320,9 @@ var num;      // 한 변수에 여러 번 대입할 수는 있지만, 변수의 
     
     ![image](https://user-images.githubusercontent.com/58940128/170966349-0bc3ff49-669b-402a-94f7-306622209ca1.png)
 
-
+    
     2022 / 06 / 02 
+    Study
     --------------
 
     ## Document 객체
