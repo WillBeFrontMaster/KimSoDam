@@ -395,7 +395,7 @@ var num;      // 한 변수에 여러 번 대입할 수는 있지만, 변수의 
     
     ### HTML 태그 이름 (tag name)을 이용한 선택
     
-        getElementsByTagName() 메소드
+    getElementsByTagName() 메소드
     
         ```jsx
         var selectedItem = document.getElementsByTagName("li"); // 모든 <li> 요소를 선택.
@@ -406,7 +406,7 @@ var num;      // 한 변수에 여러 번 대입할 수는 있지만, 변수의 
                                                 
    ### 아이디(id)를 이용한 선택
     
-        getElementsById() 메소드
+   getElementsById() 메소드
     
         ```jsx
         var selectedItem = document.getElementById("even"); // 아이디가 "even"인 요소를 선택.
@@ -415,7 +415,7 @@ var num;      // 한 변수에 여러 번 대입할 수는 있지만, 변수의 
                                                
    ### 클래스(class)를 이용한 선택
     
-        getElementsByClassName() 메소드
+   getElementsByClassName() 메소드
     
         ```jsx
         var selectedItem = document.getElementsByClassName("odd"); // 클래스가 "odd"인 모든 요소를 선택.
@@ -426,7 +426,7 @@ var num;      // 한 변수에 여러 번 대입할 수는 있지만, 변수의 
     
    ### name 속성을 이용한 선택
     
-        getElementByName() 메소드
+   getElementByName() 메소드
     
         ```jsx
         var selectedItem = document.getElementsByName("first"); // name 속성값이 "first"인 모든 요소를 선택.
@@ -437,7 +437,7 @@ var num;      // 한 변수에 여러 번 대입할 수는 있지만, 변수의 
         
    ### CSS 선택자(selector)를 이용한 선택
     
-        querySelectorAll() 메소드
+   querySelectorAll() 메소드
     
         ```jsx
         var selectedItem = document.querySelectorAll("li.odd"); // 클래스가 "odd"인 요소 중에서 <li> 요소만을 선택.
@@ -448,7 +448,7 @@ var num;      // 한 변수에 여러 번 대입할 수는 있지만, 변수의 
                                                 
    ### HTML 객체 집합(object collection)을 이용한 선택
     
-        HTML DOM에서 제공하는 객체 집합(object collection)을 이용
+   HTML DOM에서 제공하는 객체 집합(object collection)을 이용
     
         ```jsx
         var title = document.title; // <title> 요소를 선택.
