@@ -400,7 +400,7 @@ var num;      // 한 변수에 여러 번 대입할 수는 있지만, 변수의 
    ```jsx
    var selectedItem = document.getElementsByTagName("li"); // 모든 <li> 요소를 선택.
    for (var i = 0; i < selectedItem.length; i++) {
-    selectedItem.item(i).style.color = "red"; // 선택된 모든 요소의 텍스트 색상을 변경.
+        selectedItem.item(i).style.color = "red"; // 선택된 모든 요소의 텍스트 색상을 변경.
    }
    ```
                                                 
