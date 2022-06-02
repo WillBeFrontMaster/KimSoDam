@@ -404,7 +404,7 @@ var num;      // 한 변수에 여러 번 대입할 수는 있지만, 변수의 
         }
         ```
                                                 
-        ### 아이디(id)를 이용한 선택
+   ### 아이디(id)를 이용한 선택
     
         getElementsById() 메소드
     
@@ -413,7 +413,7 @@ var num;      // 한 변수에 여러 번 대입할 수는 있지만, 변수의 
         selectedItem.style.color = "red"; // 선택된 요소의 텍스트 색상을 변경.
         ```
                                                
-        ### 클래스(class)를 이용한 선택
+   ### 클래스(class)를 이용한 선택
     
         getElementsByClassName() 메소드
     
@@ -424,7 +424,7 @@ var num;      // 한 변수에 여러 번 대입할 수는 있지만, 변수의 
         }
         ```
     
-       ### name 속성을 이용한 선택
+   ### name 속성을 이용한 선택
     
         getElementByName() 메소드
     
@@ -435,7 +435,7 @@ var num;      // 한 변수에 여러 번 대입할 수는 있지만, 변수의 
         }
         ```
         
-        ### CSS 선택자(selector)를 이용한 선택
+   ### CSS 선택자(selector)를 이용한 선택
     
         querySelectorAll() 메소드
     
@@ -446,7 +446,7 @@ var num;      // 한 변수에 여러 번 대입할 수는 있지만, 변수의 
         }
         ```
                                                 
-        ### HTML 객체 집합(object collection)을 이용한 선택
+   ### HTML 객체 집합(object collection)을 이용한 선택
     
         HTML DOM에서 제공하는 객체 집합(object collection)을 이용
     
