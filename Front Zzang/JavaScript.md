@@ -321,11 +321,64 @@ var num;      // 한 변수에 여러 번 대입할 수는 있지만, 변수의 
     ![image](https://user-images.githubusercontent.com/58940128/170966349-0bc3ff49-669b-402a-94f7-306622209ca1.png)
 
 
+    2022 / 06 / 02 
+    --------------
 
     ### Document 객체
     
-    는 목요일에 
+    웹 페이지에 존재하는 HTML 요소에 접근하고자 할 때 사용하는 객체
     
+    ## Document 메소드
     
+    HTML 요소와 관련된 작업을 도와주는 메소드
     
+    - HTML 요소의 선택
     
+        | document.getElementsByTagName(태그이름) | 해당 태그 이름의 요소를 모두 선택. |
+        | --- | --- |
+        | document.getElementById(아이디) | 해당 아이디의 요소를 선택. |
+        | document.getElementsByClassName(클래스이름) | 해당 클래스에 속한 요소를 모두 선택. |
+        | document.getElementsByName(name속성값) | 해당 name 속성값을 가지는 요소를 모두 선택. |
+        | document.querySelectorAll(선택자) | 해당 선택자로 선택되는 요소를 모두 선택. |
+
+    - HTML 요소의 생성
+        
+        | document.createElement(HTML요소) | 지정된 HTML 요소를 생성. |
+        | --- | --- |
+        | document.write(텍스트) | HTML 출력 스트림을 통해 텍스트를 출력. |
+        
+    - HTML 이벤트 핸들러 추가
+        
+        | document.getElementById(아이디).onclick = function(){ 실행할 코드 } | 마우스 클릭 이벤트와 연결될 이벤트 핸들러 코드를 추가. |
+        | --- | --- |
+        
+    - HTML 객체의 선택
+        
+        
+        | document.anchors | name 속성을 가지는 <a>요소를 모두 반환. |	
+        | --- | --- |
+        | document.applets	| applet 요소를 모두 반환. (HTML5에서 제외됨) | 
+        | document.body | <body>요소를 반환. | 
+        | document.cookie | HTML 문서의 쿠키(cookie)를 반환. | 
+        | document.domain | HTML 문서가 위치한 서버의 도메인 네임(domain name)을 반환. | 
+        | document.forms | <form>요소를 모두 반환. | 	
+        | document.images | <img>요소를 모두 반환. | 	
+        | document.links | href 속성을 가지는 <area>요소와 <a>요소를 모두 반환. | 	
+        | document.referrer | 링크(linking)되어 있는 문서의 URI를 반환. | 	
+        | document.title | <title>요소를 반환. | 	
+        | document.URL | HTML 문서의 완전한 URL 주소를 반환. | 	
+        | document.baseURI | HTML 문서의 절대 URI(absolute base URI)를 반환. | 	
+        | document.doctype | HTML 문서의 문서 타입(doctype)을 반환. | 	
+        | document.documentElement | <html>요소를 반환. | 	
+        | document.documentMode | 웹 브라우저가 사용하고 있는 모드를 반환. | 	
+        | document.documentURI | HTML 문서의 URI를 반환. | 	
+        | document.domConfig | HTML DOM 설정을 반환. (더는 사용하지 않음) | 	
+        | document.embeds | <embed>요소를 모두 반환. | 	
+        | document.head | <head>요소를 반환. | 	
+        | document.implementation | HTML DOM 구현(implementation)을 반환. | 	
+        | document.inputEncoding | HTML 문서의 문자 인코딩(character set) 형식을 반환. | 	
+        | document.lastModified | HTML 문서의 마지막 갱신 날짜 및 시간을 반환. | 	
+        | document.readyState | HTML 문서의 로딩 상태(loading status)를 반환. | 	
+        | document.scripts | <script>요소를 모두 반환. | 	
+        | document.strictErrorChecking | 오류의 강제 검사 여부를 반환. | 
+
