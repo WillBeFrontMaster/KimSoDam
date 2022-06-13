@@ -457,3 +457,91 @@ var num;      // 한 변수에 여러 번 대입할 수는 있지만, 변수의 
    ```
     
     
+    2022 / 06 / 13
+    Study
+    --------------
+    
+    ## 함수 표현식
+```jsx
+funtion hi() {
+	alert("Hello")
+}
+```
+```js
+var hi = funtion() {
+	alert("Hello")
+}
+```
+```js
+funtion hi() {
+	alert("Hello");
+}
+alert(hi); // 이렇게 쓰면 함수의 코드가 보여진다. 왜? ()를 안 붙여줘서.
+```
+
+함수를 변수에 할당하여 복사하는 것도 가능하다.
+```js
+let func = hi;
+func(); // Hello
+hi(); // Hello
+```
+
+## 콜백함수
+
+함수를 값처럼 전달
+ex. 매개변수가 3개 있는 함수, ask(question, yes, no) 가 있다.
+이 때 각 매개변수는
+
+ - `question` : 질문
+ - `yes` : "Yes"라고 답한 경우 실행되는 함수
+ - `no` : "No"라고 답한 경우 실행되는 함수
+ 
+ 함수는 반드시 question을 수행해야 하고, 결과에 따라 yes() 혹은 no()를 호출한다.
+```js
+function ask(question, yes, no) {
+	if (confirm(question)) yes()
+	else no();
+}
+
+function  showOk()  { 
+	alert("동의하셨습니다.");  
+}  
+
+function  showCancel()  {  
+	alert("취소 버튼을 누르셨습니다.");  
+}  
+// 사용법: 함수 showOk와 showCancel가 ask 함수의 인수로 전달됨  
+ask("동의하십니까?", showOk, showCancel);
+```
+
+함수  `ask`의 인수,  `showOk`와  `showCancel`은  _콜백 함수_  또는  _콜백_ 이라고 부른다.
+
+더 간단하게 작성하는 법.
+
+```js
+function  ask(question, yes, no)  {  
+	if  (confirm(question))  yes()  
+	else  no();  
+}
+ask(
+	"동의하십니까?", 
+	function() { alert("동의하셨습니다."); }, 
+	function() { alert("취소 버튼을 누르셨습니다."); 
+});
+```
+
+## 화살표 함수 (arrow function)
+더 단순하고 간결한 문법으로 만드는 방법.
+
+```js
+let func = (arg1, arg2, ...argN) => expression
+```
+_인자 `arg1 ... argN`을 받는 함수 `func`.
+함수 `func`은 화살표(`=>`) 우측의 표현식 `(expression)`을 평가하고, 평가 결과를 반환.
+
+```js
+let func = funtion(arg1, arg2, ...argN) {
+	return expression;
+};
+```
+의 축약버전이다.
