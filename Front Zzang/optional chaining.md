@@ -77,5 +77,56 @@ user?.address;
 이것을 단락 평가(short-circuit)라고 부르지요.
 그래서 `?.` 오른쪽에 있는 부가 동작은 `?.`의 평가가 멈추면 더는 일어나지 않음.
 
+
+2022 / 06 / 16
+Study
+---------------
 ## ?.()와 ?.[]
-은 목요일에 ~
+`?.`은 연산자가 아님.
+함수나 대괄호와 함께 동작하는 문법 구조체(syntax construct).
+
+존재 여부가 확실치 않은 함수를 호출할 때 사용.
+
+-- 예시1 : 한 객체엔 메서드 `admin`이 있지만 다른 객체엔 없는 상황.
+```js
+let user1 = {
+	admin() {
+		alert("관리자 계정입니다.");
+	}
+}
+
+let user2 = {};
+
+user1.admin?.();	// 관리자 계정입니다.
+user2.admin?.();
+```
+
+두 상황 모두 user 객체는 존재하기 때문에 `admin` 프로퍼티는 `.`만 사용하여 접근.
+
+그리고 난 후 `?.()`를 사용해 `admin`의 존재 여부를 확인. `user1`엔 `admin`이 정의되어 있기 때문에 메서드가 제대로 호출 됨. 반면 `user2`에는 `admin`이 정의되어 있지 않았음에도 불구하고 메서드르 호출하면 에러 없이 그냥 평가가 멈추는 것 확인.
+
+`.` 대신 대괄호 `[]`를 사용하여 객체 프로퍼티에 접근하는 경우엔 `?.[]`를 사용할 수 있음.
+`?.[]`를 사용하면 객체 존재 여부가 확실치 않은 경우에도 안전하게 프로퍼티 읽기 가능.
+
+```js
+let user1 = {
+	firstName : "Violet"
+};
+
+let user2 = null;	// user2는 권한이 없는 사용자라고 가정.
+
+let key = "firstName";
+
+alert( user1?.[key] );	// Violet
+alert( user2?.[key] );	// undefined
+
+alert( user1?.[key]?.something?.not?.existing);	// undefined
+```
+
+`?.`은 `delete`와 조합하여 사용 가능.
+
+```js
+delete user?.name;	// user가 존재하면 user.name을 삭제
+```
+
+`?.`은 읽기나 삭제하기에는 사용할 수 있지만 쓰기에는 사용할 수 없음.
