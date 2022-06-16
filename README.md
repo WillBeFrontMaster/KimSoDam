@@ -13,3 +13,5 @@
 [JavaScript](Front%20Zzang/JavaScript.md)
 
 [Optional Chaining](Front%20Zzang/optional%20chaining.md)
+
+[Scope](Front%20Zzang/Scope.md)
