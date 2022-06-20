@@ -15,3 +15,5 @@
 [Optional Chaining](Front%20Zzang/optional%20chaining.md)
 
 [Scope](Front%20Zzang/Scope.md)
+
+[Closure](Front%20Zzang/Closure.md)
