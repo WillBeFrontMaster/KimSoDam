@@ -104,6 +104,178 @@ outerFunc(); // 10
 **오류의 원인이 되므로 사용을 억제.**
 
 
-2022 / 06 / 23
+2022 / 06 / 24
 Study
 ---------------
+## 2.2 전역 변수의 사용 억제
+
+버튼이 클릭될 때마다 클릭한 횟수가 누적되어 화면에 표시되는 카운터. 
+예제의 클릭된 횟수가 바로 유지해야할 상태.
+
+```html
+<!DOCTYPE html>  
+<html>  
+<body>  
+	<p>전역 변수를 사용한 Counting</p>  
+	<button id="inclease">+</button>  
+	<p id="count">0</p>  
+	<script>  
+		var incleaseBtn = document.getElementById('inclease');  
+		var count = document.getElementById('count');  
+
+		// 카운트 상태를 유지하기 위한 전역 변수  
+		var counter = 0;  
+
+		function increase() {  
+			return ++counter; 
+		}  
+
+		incleaseBtn.onclick = function () { 
+			count.innerHTML = increase();
+		};  
+	</script> 
+</body> 
+</html>
+```
+
+위 코드는 잘 동작하지만 오류를 발생시킬 가능성을 내포하고 있는 좋지 않은 코드. 
+`increase` 함수는 호출되기 직전에 전역변수 `counter`의 값이 반드시 `0`이여야 제대로 동작. 
+하지만 변수 `counter`는 전역 변수이기 때문에 언제든지 누구나 접근할 수 있고 변경 가능. 
+이는 의도치 않게 값이 변경될 수 있다는 것을 의미. 
+
+만약 누군가에 의해 의도치 않게 전역 변수 `counter`의 값이 변경됐다면 오류로 이어짐. 
+변수 `counter`는 카운터를 관리하는 `increase` 함수가 관리하는 것이 바람직. 
+
+전역 변수 `counter`를 `increase`함수의 지역 변수로 바꾸어 의도치 않은 상태 변경을 방지 가능.
+
+```html
+<!DOCTYPE html>  
+<html>  
+<body>  
+	<p>지역 변수를 사용한 Counting</p>  
+	<button id="inclease">+</button>  
+	<p id="count">0</p>  
+	<script>  
+		var incleaseBtn = document.getElementById('inclease');  
+		var count = document.getElementById('count');  
+
+		function increase() {  
+			// 카운트 상태를 유지하기 위한 지역 변수  
+			var counter = 0;  
+			return ++counter; 
+		}  
+
+		incleaseBtn.onclick = function () { 
+			count.innerHTML = increase();
+		};  
+	</script> 
+</body> 
+</html>
+```
+
+전역변수를 지역변수로 변경하여 의도치 않은 상태 변경은 방지. 
+하지만 `increase` 함수가 호출될 때마다 지역변수 `counter`를 `0`으로 초기화하기 때문에 언제나 `1`이 표시. 
+다시 말해 **변경된 이전 상태를 기억하지 못함.**
+
+이전 상태를 기억하도록 클로저를 사용하여 해결 가능.
+
+
+```html
+<!DOCTYPE html>  
+<html>  
+<body>  
+	<p>클로저를 사용한 Counting</p>  
+	<button id="inclease">+</button>  
+	<p id="count">0</p>  
+	<script>  
+		var incleaseBtn = document.getElementById('inclease');  
+		var count = document.getElementById('count');  
+
+		var increase(function () {  
+			// 카운트 상태를 유지하기 위한 자유 변수  
+			var counter = 0;  
+			// 클로저를 반환
+			return funtion() {
+				return ++counter; 
+			};
+		}());
+
+		incleaseBtn.onclick = function () { 
+			count.innerHTML = increase();
+		};  
+	</script> 
+</body> 
+</html>
+```
+
+스크립트가 실행되면 즉시실행함수(immediately-invoked function expression)가 호출되고 
+변수 `increase`에는 함수  `function () { return ++counter; }`가 할당. 
+
+이 함수는 자신이 생성됐을 때의 렉시컬 환경(Lexical environment)을 기억하는 클로저. 
+즉시실행함수는 호출된 이후 소멸되지만 즉시실행함수가 반환한 함수는 변수 `increase`에 할당되어 
+`inclease` 버튼을 클릭하면 클릭 이벤트 핸들러 내부에서 호출. 
+
+이때 클로저인 이 함수는 자신이 선언됐을 때의 렉시컬 환경인 즉시실행함수의 스코프에 속한 지역변수 `counter`를 기억. 
+따라서 즉시실행함수의 변수 `counter`에 접근할 수 있고 변수 `counter`는 자신을 참조하는 함수가 소멸될 때가지 유지.
+
+즉시실행함수는 한번만 실행되므로 `increase`가 호출될 때마다 변수 `counter`가 재차 초기화될 일은 없을 것. 
+변수 `counter`는 외부에서 직접 접근할 수 없는  `private`  변수이므로 전역 변수를 사용했을 때와 같이  
+**의도되지 않은 변경**을 걱정할 필요도 없음. 
+보다 안정적인 프로그래밍이 가능.
+
+변수의 값은 누군가에 의해 언제든지 변경될 수 있어 오류 발생의 근본적 원인이 될 수 있음. 
+상태 변경이나 가변(mutable) 데이터를 피하고  **불변성(Immutability)을 지향**하는 함수형 프로그래밍에서  
+**부수 효과(Side effect)를 최대한 억제**하여 오류를 피하고 프로그램의 안정성을 높일 수 있는 목적으로 클로저 사용.
+
+
+
+함수형 프로그래밍에서 클로저를 활용하는 예제.
+```js
+// 함수를 인자로 전달받고 함수를 반환하는 고차 함수  
+// 이 함수가 반환하는 함수는 클로저로서 카운트 상태를 유지하기 위한 자유 변수 counter을 기억.  
+function makeCounter(predicate) {  
+	// 카운트 상태를 유지하기 위한 자유 변수  
+	var counter = 0;  
+	// 클로저를 반환  
+	return function () {  
+		counter = predicate(counter);  
+		return  counter; 
+	};  
+}  
+
+// 보조 함수  
+function increase(n) {  
+	return ++n;
+}  
+
+// 보조 함수  
+function decrease(n) { 
+	return --n; 
+} 
+
+// 함수로 함수를 생성.  
+// makeCounter 함수는 보조 함수를 인자로 전달받아 함수를 반환 
+const increaser = makeCounter(increase);  
+console.log(increaser()); // 1  
+console.log(increaser()); // 2  
+
+// increaser 함수와는 별개의 독립된 렉시컬 환경을 갖기 때문에 카운터 상태가 연동하지 않음.
+const decreaser = makeCounter(decrease); 
+console.log(decreaser()); // -1  
+console.log(decreaser()); // -2
+```
+
+함수 `makeCounter`는 보조 함수를 인자로 전달받고 함수를 반환하는 고차 함수. 
+함수 `makeCounter`가 반환하는 함수는 자신이 생성됐을 때의 
+렉시컬 환경인 함수 `makeCounter`의 스코프에 속한 변수 `counter`을 기억하는 클로저. 
+
+함수 `makeCounter`는 인자로 전달받은 보조 함수를 합성하여 자신이 반환하는 함수의 동작을 변경 가능. 
+
+주의해야 할 것은 함수 `makeCounter`를 호출해 함수를 반환할 때 반환된 함수는 자신만의 독립된 렉시컬 환경을 가짐.
+함수를 호출하면 그때마다 새로운 렉시컬 환경이 생성되기 때문. 
+
+위 예제에서 변수 `increaser`와 변수 `decreaser`에 할당된 함수는 각각 자신만의 독립된 렉시컬 환경을 갖기 때문에 
+카운트를 유지하기 위한 자유 변수 `counter`를 공유하지 않아 카운터의 증감이 연동하지 않음. 
+
+따라서 독립된 카운터가 아니라 연동하여 증감이 가능한 카운터를 만들려면 
+렉시컬 환경을 공유하는 클로저를 만들어야 함.
